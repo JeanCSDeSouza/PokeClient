@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon SPA</title>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-$END$
+<nav>
+    <a href="#/" onclick="navigateTo(event, '/')">Home</a>
+    <a href="#/add" onclick="navigateTo(event, '/add')">Add Pokemon</a>
+</nav>
+<div class="container">
+    <div id="home" class="page">
+        <h1>All Pokemons</h1>
+        <div class="pokemon-list" id="pokemon-list"></div>
+    </div>
+    <div id="add" class="page hidden">
+        <h1>Add a New Pokemon</h1>
+        <form id="add-pokemon-form" onsubmit="addPokemon(event)">
+            <input type="text" id="nome" placeholder="Name" required>
+            <textarea id="descricao" placeholder="Description" required></textarea>
+            <input type="number" id="valor" placeholder="Value" required>
+            <input type="text" id="tempo" placeholder="Time (YYYY-MM-DD HH:MM:SS)" required>
+            <input type="text" id="usuario" placeholder="User" required>
+            <input type="text" id="imagem" placeholder="Image URL">
+            <button type="submit">Add Pokemon</button>
+        </form>
+    </div>
+    <div id="details" class="page hidden">
+        <h1>Pokemon Details</h1>
+        <div id="pokemon-details"></div>
+    </div>
+</div>
+<script src="static/spa.js"></script>
 </body>
 </html>
