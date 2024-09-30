@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon SPA</title>
-    <link rel="stylesheet" href="static/styles2.css">
+    <link rel="stylesheet" href="/static/styles2.css">
 </head>
 <body>
 <nav>
@@ -32,6 +32,13 @@
     <div id="details" class="page hidden">
         <h1>Pokemon Details</h1>
         <div id="pokemon-details"></div>
+        <!-- New Section for Trainer Update and Delete -->
+        <form id="update-trainer-form" onsubmit="updateTrainer(event)">
+            <label for="new-trainer">New Trainer:</label>
+            <input type="text" id="new-trainer" name="new-trainer" required>
+            <button type="submit">Update Trainer</button>
+        </form>
+        <button id="delete-pokemon-button" onclick="deletePokemon()">Delete Pokemon</button>
     </div>
     <div id="search" class="page hidden">
         <h1>Search Pokemon from PokeAPI</h1>
@@ -42,6 +49,6 @@
         <div id="search-results"></div>
     </div>
 </div>
-<script src="static/spa.js"></script>
+<script src="/static/spa3.js"></script>
 </body>
 </html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon SPA</title>
+    <link rel="stylesheet" href="static/styles2.css">
+    <style>
+        .pokemon-card {
+            width: 250px;
+            border-radius: 15px;
+            padding: 15px;
+            background-color: #f8f9fa; /* Light gray background */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+            border: 2px solid #000; /* Black border to simulate the card's outline */
+            position: relative;
+            text-align: center;
+            margin: 10px;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://example.com/card-bg.png'); /* Optional card background image */
+            background-size: cover;
+        }
+
+        .pokemon-card h2 {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #333;
+            text-shadow: 1px 1px 2px #fff; /* Subtle text shadow */
+        }
+
+        .pokemon-card img {
+            width: 100px;
+            height: 100px;
+            margin: 10px 0;
+            border: 3px solid #333; /* Border around the image */
+            border-radius: 50%; /* Rounded image */
+            background-color: white;
+        }
+
+        .pokemon-description {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        .pokemon-user {
+            font-size: 12px;
+            color: #007bff; /* Trainer name in blue */
+            margin-bottom: 15px;
+        }
+
+        .pokemon-card a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #ffcc00; /* Button color similar to a Pokémon card */
+            padding: 8px 16px;
+            border-radius: 5px;
+            color: #333;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .pokemon-card a:hover {
+            background-color: #ffaa00;
+        }
+
+        .pokemon-card::before {
+            content: 'Pokémon';
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff0000;
+            position: absolute;
+            top: 8px;
+            left: 10px;
+        }
+
+        .pokemon-card::after {
+            content: 'HP';
+            font-size: 12px;
+            color: #ff0000;
+            position: absolute;
+            top: 8px;
+            right: 10px;
+        }
+
+        .pokemon-card:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            transition: transform 0.2s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <a href="#/" onclick="navigateTo(event, '/')">Home</a>
+    <a href="#/add" onclick="navigateTo(event, '/add')">Add Pokemon</a>
+    <a href="#/search" onclick="navigateTo(event, '/search')">Search Pokemon</a>
+</nav>
+<div class="container">
+    <div id="home" class="page">
+        <h1>All Pokemons</h1>
+        <div class="pokemon-list" id="pokemon-list"></div>
+    </div>
+    <div id="add" class="page hidden">
+        <h1>Add a New Pokemon</h1>
+        <form id="add-pokemon-form" onsubmit="addPokemon(event)">
+            <input type="text" id="nome" placeholder="Name" required>
+            <textarea id="descricao" placeholder="Description" required></textarea>
+            <input type="number" id="valor" placeholder="Value" required>
+            <input type="text" id="tempo" placeholder="Time (YYYY-MM-DD HH:MM:SS)" required>
+            <input type="text" id="usuario" placeholder="User" required>
+            <input type="text" id="imagem" placeholder="Image URL" required>
+            <button type="submit">Add Pokemon</button>
+        </form>
+    </div>
+    <div id="details" class="page hidden">
+        <h1>Pokemon Details</h1>
+        <div id="pokemon-details"></div>
+        <!-- New Section for Trainer Update and Delete -->
+        <form id="update-trainer-form" onsubmit="updateTrainer(event)">
+            <label for="new-trainer">New Trainer:</label>
+            <input type="text" id="new-trainer" name="new-trainer" required>
+            <button type="submit">Update Trainer</button>
+        </form>
+        <button id="delete-pokemon-button" onclick="deletePokemon()">Delete Pokemon</button>
+    </div>
+    <div id="search" class="page hidden">
+        <h1>Search Pokemon from PokeAPI</h1>
+        <form id="search-pokemon-form" onsubmit="searchPokemon(event)">
+            <input type="text" id="search-name" placeholder="Pokemon name or ID" required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="search-results"></div>
+    </div>
+</div>
+<script>
+    const apiBaseUrl = 'http://localhost:8081/api/v1';
+    const pokeApiBaseUrl = 'http://localhost:8080/api/v2/pokemon/';
+    let currentPokemonId = null; // Global variable to hold current Pokemon ID
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadPokemons();
+        window.addEventListener('hashchange', () => {
+            const path = window.location.hash.substring(1);
+            navigateTo(null, path);
+        });
+    });
+
+    function navigateTo(event, path) {
+        if (event) event.preventDefault();
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.add('hidden'));
+
+        const targetPage = document.querySelector(`#${path.split('/')[1] || 'home'}`);
+        if (targetPage) targetPage.classList.remove('hidden');
+
+        if (path.startsWith('/details')) {
+            const id = path.split('/')[2];
+            loadPokemonDetails(id);
+        }
+    }
+
+    async function loadPokemons() {
+        try {
+            const response = await fetch(`${apiBaseUrl}/pokemon`);
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch Pokémon data');
+            }
+
+            const data = await response.json();
+            const pokemonList = document.getElementById('pokemon-list');
+            pokemonList.innerHTML = '';
+
+            data.forEach(pokemon => {
+                const pokemonCard = document.createElement('div');
+                pokemonCard.className = 'pokemon-card';
+                pokemonCard.innerHTML = `
+                <h2>${pokemon.nome}</h2>
+                <img src="${pokemon.imagem}" alt="${pokemon.nome}">
+                <p>${pokemon.descricao}</p>
+                <p>Treinador: ${pokemon.usuario}</p>
+                <a href="#/details/${pokemon.id}" onclick="navigateTo(event, '/details/${pokemon.id}')">View Details</a>
+            `;
+                pokemonList.appendChild(pokemonCard);
+            });
+        } catch (error) {
+            console.error('Error loading Pokémon:', error);
+        }
+    }
+
+    async function addPokemon(event) {
+        event.preventDefault();
+        const form = document.getElementById('add-pokemon-form');
+        const formData = {
+            nome: form.nome.value,
+            descricao: form.descricao.value,
+            valor: form.valor.value,
+            tempo: form.tempo.value,
+            usuario: form.usuario.value,
+            imagem: form.imagem.value,
+        };
+        const response = await fetch(`${apiBaseUrl}/pokemon`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        if (response.ok) {
+            alert('Pokemon added successfully!');
+            form.reset();
+            navigateTo(null, '/');
+            await loadPokemons();
+        } else {
+            alert('Failed to add Pokemon.');
+        }
+    }
+
+    async function loadPokemonDetails(id) {
+        const response = await fetch(`${apiBaseUrl}/pokemon/${id}`);
+        const pokemon = await response.json();
+        const pokemonDetails = document.getElementById('pokemon-details');
+        currentPokemonId = id; // Save current Pokemon ID for later use (delete or update)
+
+        pokemonDetails.innerHTML = `
+            <h2>${pokemon.nome}</h2>
+            <img src="${pokemon.imagem}" alt="${pokemon.nome}">
+            <p>${pokemon.descricao}</p>
+            <p>Value: ${pokemon.valor}</p>
+            <p>Time: ${pokemon.tempo}</p>
+            <p>User: ${pokemon.usuario}</p>
+        `;
+    }
+
+    async function updateTrainer(event) {
+        event.preventDefault();
+        const newTrainer = document.getElementById('new-trainer').value;
+
+        if (currentPokemonId) {
+            const response = await fetch(`${apiBaseUrl}/pokemon/${currentPokemonId}/treinador`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newTrainer)
+            });
+
+            if (response.ok) {
+                alert('Trainer updated successfully!');
+                document.getElementById('new-trainer').value = ''; // Clear input
+                loadPokemonDetails(currentPokemonId); // Reload details
+            } else {
+                alert('Failed to update trainer.');
+            }
+        }
+    }
+
+    async function deletePokemon() {
+        if (currentPokemonId) {
+            const response = await fetch(`${apiBaseUrl}/pokemon/${currentPokemonId}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                alert('Pokemon deleted successfully!');
+                navigateTo(null, '/'); // Redirect to home
+                loadPokemons(); // Refresh list
+            } else {
+                alert('Failed to delete Pokemon.');
+            }
+        }
+    }
+
+    async function searchPokemon(event) {
+        event.preventDefault();
+        const searchInput = document.getElementById('search-name').value.toLowerCase();
+        const searchResults = document.getElementById('search-results');
+        searchResults.innerHTML = '';
+        try {
+            const response = await fetch(`${pokeApiBaseUrl}${searchInput}`);
+            if (!response.ok) throw new Error('Pokemon not found.');
+            const pokemon = await response.json();
+            searchResults.innerHTML = `
+                <h2>${pokemon.name}</h2>
+                <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                <p>Height: ${pokemon.height / 10} m</p>
+                <p>Weight: ${pokemon.weight / 10} kg</p>
+                <p>Types: ${pokemon.types.map(t => t.type.name).join(', ')}</p>
+                <p>Abilities: ${pokemon.abilities.map(a => a.ability.name).join(', ')}</p>
+            `;
+        } catch (error) {
+            searchResults.innerHTML = `<p>${error.message}</p>`;
+        }
+    }
+</script>
+</body>
+</html>
