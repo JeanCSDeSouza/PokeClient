@@ -101,10 +101,10 @@ async function loadPokemonDetails(id) {
 async function updateTrainer(event) {
     event.preventDefault();
     const newTrainer = document.getElementById('new-trainer').value;
-    const call = apiBaseUrl+"/pokemon/"+currentPokemonId+"/treinador";
+    const call = apiBaseUrl+"/"+currentPokemonId+"/treinador";
     if (currentPokemonId) {
         const response = await fetch(call, {
-            method: 'PATCH',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -123,7 +123,7 @@ async function updateTrainer(event) {
 
 async function deletePokemon() {
     if (currentPokemonId) {
-        const call = apiBaseUrl+"/pokemon/"+currentPokemonId;
+        const call = apiBaseUrl+"/"+currentPokemonId;
         const response = await fetch(call, {
             method: 'DELETE'
         });
