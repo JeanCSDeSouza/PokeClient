@@ -46,7 +46,7 @@ services:
       - poke-api
     environment:
       - POKEAPI_URL=http://info-api/api/v2/pokemon/
-      - API_BASE_URL=http://127.0.0.1:5000/api/v1
+      - API_BASE_URL=http://poke-api/api/v1
     ports:
       - "9090:80"
 volumes:
