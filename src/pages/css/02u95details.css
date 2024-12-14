@@ -1,0 +1,161 @@
+/* screen - 02u95details */
+
+.x02u95details {
+  align-items: flex-start;
+  background-color: var(--defaultwhite);
+  display: flex;
+  flex-direction: column;
+  height: 1024px;
+  width: 1440px;
+}
+
+.x02u95details .flex-row {
+  align-items: center;
+  display: flex;
+  gap: 56px;
+  min-width: 1403px;
+}
+
+.x02u95details .wrap {
+  height: 810px;
+  justify-content: space-between;
+  margin-bottom: 40.0px;
+  width: 1181px;
+}
+
+.x02u95details .card-image-topcard-image-variant-4 {
+  align-items: center;
+  background-color: var(--defaultwhite);
+  border: 1px solid;
+  border-color: var(--gray300);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 352px;
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+}
+
+.x02u95details .card-image {
+  border-radius: 12px 12px 0px 0px;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.x02u95details .card-content {
+  align-self: stretch;
+  display: flex;
+  gap: 24px;
+  height: 199px;
+  padding: 24px;
+  width: 100%;
+}
+
+.x02u95details .wrap-1 {
+  height: 352px;
+  justify-content: space-between;
+  width: 899px;
+}
+
+.x02u95details .wrap-2 {
+  height: 41px;
+  justify-content: space-around;
+  width: 912px;
+}
+
+.x02u95details .frame-89 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.x02u95details .title {
+  color: var(--gray800);
+  font-weight: 600;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  width: fit-content;
+}
+
+.x02u95details .wrap-3 {
+  height: 166px;
+  justify-content: space-around;
+  width: 912px;
+}
+
+.x02u95details .mewtwo-com-natureza {
+  color: var(--body-text--base-color);
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: -1.00px;
+  margin-top: -1.00px;
+  position: relative;
+  width: 912px;
+}
+
+.x02u95details .wrap-4 {
+  height: 81px;
+  justify-content: space-between;
+  width: 912px;
+}
+
+.x02u95details .owner {
+  color: var(--gray800);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  width: fit-content;
+}
+
+.x02u95details .jcsouza {
+  color: var(--gray600);
+  font-weight: 400;
+  height: 15px;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: 863px;
+}
+
+.x02u95details .valor-estimado {
+  color: var(--gray800);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.x02u95details .price {
+  color: var(--gray600);
+  font-weight: 400;
+  height: 15px;
+  line-height: 28px;
+  position: relative;
+  white-space: nowrap;
+  width: 802px;
+}
+
+.x02u95details .card {
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+
+.x02u95details .wrap-5 {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 32px;
+  position: relative;
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "0001-Bulbasaur",
+    "name": "@Bulbasaur",
+    "description": "Grass/Poison type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/bulbasaur.png"
+  },
+  {
+    "id": "0004-Charmander",
+    "name": "@Charmander",
+    "description": "Fire type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/charmander.png"
+  },
+  {
+    "id": "0007-Squirtle",
+    "name": "@Squirtle",
+    "description": "Water type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/squirtle.png"
+  },
+  {
+    "id": "0015-Beedrill",
+    "name": "@Beedrill",
+    "description": "Bug/Poison type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/beedrill.png"
+  },
+  {
+    "id": "0016-Pidgey",
+    "name": "@Pidgey",
+    "description": "Normal/Flying type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/pidgey.png"
+  },
+  {
+    "id": "0025-Pikachu",
+    "name": "@Pikachu",
+    "description": "Electric type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/pikachu-f.png"
+  },
+  {
+    "id": "0039-Jigglypuff",
+    "name": "@Jigglypuff",
+    "description": "Normal/Fairy type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/jigglypuff.png"
+  },
+  {
+    "id": "0050-Diglett",
+    "name": "@Diglett",
+    "description": "Ground type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/diglett.png"
+  },
+  {
+    "id": "0063-Abra",
+    "name": "@Abra",
+    "description": "Psychic type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/abra.png"
+  },
+  {
+    "id": "0081-Magnemite",
+    "name": "@Magnemite",
+    "description": "Electric/Steel type",
+    "imgSrc": "https://img.pokemondb.net/sprites/black-white/normal/magnemite.png"
+  }
+]

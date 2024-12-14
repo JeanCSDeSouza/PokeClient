@@ -1,0 +1,253 @@
+/* screen - 03u95form */
+
+.x03u95form {
+  align-items: flex-start;
+  background-color: var(--defaultwhite);
+  display: flex;
+  flex-direction: column;
+  height: 1024px;
+  width: 1440px;
+}
+
+.x03u95form .flex-row {
+  align-items: center;
+  display: flex;
+  gap: 27px;
+  min-width: 1374px;
+}
+
+.x03u95form .form-1 {
+  align-items: flex-start;
+  display: flex;
+  gap: 32px;
+  justify-content: space-around;
+  margin-bottom: 42.0px;
+  position: relative;
+  width: 1181px;
+}
+
+.x03u95form .wrap {
+  flex-wrap: wrap;
+  gap: 25px 32px;
+  height: 840px;
+  justify-content: space-between;
+}
+
+.x03u95form .wrap-1 {
+  gap: 32px;
+  height: 130px;
+  justify-content: space-around;
+}
+
+.x03u95form .image-1 {
+  height: 129.8px;
+  object-fit: cover;
+  position: relative;
+  width: 130px;
+  margin-left: 236.5px;
+}
+
+.x03u95form .text-inputs {
+  flex-direction: column;
+  gap: 8px;
+  height: 119px;
+  width: 603px;
+}
+
+.x03u95form .input-text-label {
+  align-self: stretch;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-top: -1.00px;
+  position: relative;
+}
+
+.x03u95form .input-field {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: var(--defaultwhite);
+  border: 1px solid;
+  border-color: var(--celeste);
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: -1.00px;
+  margin-right: -1.00px;
+  padding: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.x03u95form .text {
+  align-self: stretch;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.x03u95form .type-here-1 {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1.00px;
+  padding: 0;
+  position: relative;
+  width: 304px;
+}
+
+.x03u95form .type-here-1::placeholder {
+  color: #66666699;
+}
+
+.x03u95form .icon {
+  margin-top: -846.00px;
+}
+
+.x03u95form .assistive-text {
+  align-self: stretch;
+  letter-spacing: 0;
+  line-height: 18px;
+  position: relative;
+}
+
+.x03u95form .text-inputs-1 {
+  height: 173px;
+}
+
+.x03u95form .textarea {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+}
+
+.x03u95form .content {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: var(--defaultwhite);
+  border: 1px solid;
+  border-color: var(--gray300);
+  border-radius: 6px;
+  display: flex;
+  gap: 8px;
+  height: 114px;
+  padding: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.x03u95form .write-a-message {
+  background-color: transparent;
+  border: 0;
+  color: var(--gray500);
+  flex: 1;
+  flex-grow: 1;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: -1.00px;
+  padding: 0;
+  position: relative;
+}
+
+.x03u95form .write-a-message::placeholder {
+  color: #adb5bd99;
+}
+
+.x03u95form .type-here {
+  background-color: transparent;
+  border: 0;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1.00px;
+  padding: 0;
+  position: relative;
+  width: 304px;
+}
+
+.x03u95form .type-here::placeholder {
+  color: #66666699;
+}
+
+.x03u95form .icon-1 {
+  margin-top: -1188.00px;
+}
+
+.x03u95form .text-inputs-3 {
+  height: 113px;
+}
+
+.x03u95form .icon-2 {
+  margin-top: -1321.00px;
+}
+
+.x03u95form .buttons {
+  align-items: flex-start;
+  background-color: var(--keatext-purple);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 56px;
+  padding: 16px;
+  position: relative;
+  width: 603px;
+}
+
+.x03u95form .text-1 {
+  align-self: stretch;
+  gap: 8px;
+  height: 24px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.x03u95form .add {
+  color: var(--defaultwhite);
+  font-family: var(--font-family-noto_sans);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.x03u95form .icon-3 {
+  height: 24px;
+  margin-left: -4766px;
+  position: relative;
+  width: 24px;
+}
+
+.x03u95form .text-2 {
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+}
+
+.x03u95form .text-inputs-4 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 603px;
+}
+
+.x03u95form .wrap-2 {
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+  width: 603px;
+  flex-direction: column;
+}
