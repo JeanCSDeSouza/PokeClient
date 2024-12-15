@@ -29,7 +29,7 @@ Abra o [http://localhost:3000/#/](http://localhost:3000/#/) no navegador.
 ## Como atualizar o projeto
 
 A interface está dividida em paginas e componentes, então caso seja necessário alterar algo sentro de scr/pages estão todas as paginas do front
-e em src/componentes estão os componentes(nevbar, header, card).
+e em src/components estão os componentes(nevbar, header, card).
 
 ### Figma do projeto
 - https://www.figma.com/design/XW7HCLjqdsbLEdg2Wi5cLf/P%C3%B3s-Grad-PUC?node-id=0-1&t=FVtSSvlwJMGsGYnr-1
