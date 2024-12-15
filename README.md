@@ -1,13 +1,12 @@
-# Meu Front-end em React
+# PokeAPi-UI
 
-Este é um projeto que faz parte do material diático da **Aula 3** da disciplina **Desenvolvimento Front-end Avançado** 
-
-Vamos continuar o desenvolvimento da single page application (SPA) iniciada lá na segunda aula, mas desta vez consumindo o dado de uma API em vez do acesso aos dados estáticos de um arquivo JSON.
+Este projeto foi desenvolvido como projeto final da pós graduação em desenvolvimento full stack Puc-RIO.
+O objetivo é manter uma lista visual de todos os pokemons capturados pelo usário nos jogos da franquia pokemon, 
+com a intenção de manter uma relação atualizada dos pokemons(ataques, Ivs e Eves, natureza) para facilitar o 
+controle de quais pokemon o usuário possui para evitar refazer o mesmo. 
 
 
 ## Como executar o front
-
-**Primeiro será necessário a execução da API.** No projeto da API você encontra as intruções para a execução.
 
 Será necessário ter o [Nodejs, ou o npm,](https://nodejs.org/en/download/) instalado. 
 
@@ -26,3 +25,11 @@ $ npm start
 ```
 
 Abra o [http://localhost:3000/#/](http://localhost:3000/#/) no navegador.
+
+## Como atualizar o projeto
+
+A interface está dividida em paginas e componentes, então caso seja necessário alterar algo sentro de scr/pages estão todas as paginas do front
+e em src/componentes estão os componentes(nevbar, header, card).
+
+### Figma do projeto
+- https://www.figma.com/design/XW7HCLjqdsbLEdg2Wi5cLf/P%C3%B3s-Grad-PUC?node-id=0-1&t=FVtSSvlwJMGsGYnr-1
